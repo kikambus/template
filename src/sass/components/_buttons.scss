@@ -1,0 +1,87 @@
+/**********************************************
+               - BUTTONS DEFAULT -
+**********************************************/
+.btn {
+	display: inline-block;
+
+	width: 100%;
+	margin: 0 -2px 0 0;
+	padding: 0 15px;
+
+	border: none;
+	background-color: transparent;
+
+	color: #000;
+	font-family: $font-second;
+	font-weight: 700;
+	
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+
+	border-radius: 50px;
+
+	overflow: hidden;
+	box-sizing: border-box;
+
+	@include rem2px(font-size, 1.4); // 14px
+	@include rem2px(line-height, 3.8); //38px
+
+	&:hover {
+		//padding: 0;
+
+		transition: background 0.1s ease-in-out;
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+
+	&.disabled {
+		background: $color-dark-light;
+		color: $color-dark-medium;
+		border: 1px solid $color-dark-light;
+
+		pointer-events: none;
+	}
+}
+/*********************************************/
+/*********************************************/
+
+
+/**********************************************
+             - GREEN BUTTON -
+**********************************************/
+.btn-green {
+	background: $color-green-general;
+	border: 1px solid $color-green-general;
+
+	border-radius: 50px;
+
+	&:hover {
+		background: $color-dark;
+		border: 1px solid $color-green-general;
+		color: $color-green-general;
+	}
+}
+/*********************************************/
+/*********************************************/
+
+
+/**********************************************
+             - GOLD BUTTON -
+**********************************************/
+.btn-gold {
+	background: $color-golden-general;
+	border: 1px solid $color-golden-general;
+
+	&:hover {
+		background: #000;
+		border: 1px solid $color-golden-general;
+		color: $color-golden-general;
+	}
+}
+/*********************************************/
+/*********************************************/

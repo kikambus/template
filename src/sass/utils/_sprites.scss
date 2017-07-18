@@ -1,0 +1,54 @@
+/**********************************************
+            		- SPRITES -
+**********************************************/
+
+/*
+ * Retina Sprites for Compass
+ * by:              Gaya Kessler
+ * last update:     03/11/14
+ *
+ * Usage:
+ * 1. create two folders in your image directory (in this case 'icons' and 'icons-2x').
+ * 2. adjust the foldernames defined below if you use different names.
+ * 3. create sprite images for pixel ratio 1 screens and put them in the first folder.
+ * 4. create sprite images for pixel ratio 2 screens and put them in the second folder, use the same filenames.
+ * 5. use the sprite-image in your Sass/Scss using: '@include use-sprite(<sprite-name>)'
+ */
+
+//first we'll define the folders where the sprites are and their layouts
+$images-list: sprite-map("images-list/*.png", $spacing: 2px);
+$images-list-2x: sprite-map("images-list-2x/*.png", $spacing: 2px);
+//$layout: smart
+
+
+//Sprite mixin, works perfectly with standard defines
+@mixin images-list-sprite($sprite, $center: false) {
+    display: block;
+    background-image: sprite-url($images-list);
+    background-position: sprite-position($images-list, $sprite);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: image-height(sprite-file($images-list, $sprite));
+    width: image-width(sprite-file($images-list, $sprite));
+
+    $height: image-height(sprite-file($images-list, $sprite));
+    $width: image-width(sprite-file($images-list, $sprite));
+
+    @if $center == true {
+        margin: (-$height / 2) 0 0 (-$width / 2);
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+        background-image: sprite-url($images-list-2x);
+        background-size: (image-width(sprite-path($images-list-2x)) / 2) (image-height(sprite-path($images-list-2x)) / 2);
+        background-position: round(nth(sprite-position($images-list-2x, $sprite), 1) / 2) round(nth(sprite-position($images-list-2x, $sprite), 2) / 2);
+        height: image-height(sprite-file($images-list-2x, $sprite)) / 2;
+        width: image-width(sprite-file($images-list-2x, $sprite)) / 2;
+
+        $height: image-height(sprite-file($images-list-2x, $sprite));
+        $width: image-width(sprite-file($images-list-2x, $sprite));
+    }
+}
+
+/*********************************************/
+/*********************************************/

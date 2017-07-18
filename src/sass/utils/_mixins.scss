@@ -1,0 +1,82 @@
+/**********************************************
+                 - MIXINS -
+**********************************************/
+
+/// Convert rem to px;
+/// @access public
+/// @param {String} $property       - name of attr
+/// @param {Integer} $sizeValue     - size value in REM  //default font-size: 10px;
+
+@mixin rem2px ($property, $sizeValue) {
+    #{$property}: ($sizeValue * 10) + px;
+    #{$property}: $sizeValue + rem;
+}
+
+/// Convert rem to px;
+/// @access public
+/// @param {String} $property       - name of attr
+/// @param {Integer} $values        - size value in REM  //default font-size: 10px;
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value * 10}px;
+
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    } 
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+
+
+/// Z-index gradetion;
+/// @access public
+/// @param {String} $key            - name of z-index gradation level
+/// @param {Object} $z-index        - z-index object
+
+$z-index: (
+    popup           : 9999,
+    mobile-2x       : 215,
+    mobile-1x       : 210,
+    mobile          : 200,
+    general-up-2x   : 120,
+    general-up      : 110,
+    general         : 100,
+    drop-down       : 20,
+    decor-levelup   : 15,
+    decor           : 10,
+    form-elem       : 5,
+    default         : 1,
+    negative        : -1
+);
+
+@function z-index($key) {
+    @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+    z-index: z-index($key);
+}
+/*********************************************/
+/*********************************************/

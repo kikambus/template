@@ -1,0 +1,104 @@
+/**********************************************
+                - TYPOGRAPHY -
+**********************************************/
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    margin: 0;
+    padding-bottom: 0.1rem;
+    
+    font-family: $font-second;
+    font-weight: normal;
+
+    color: $color-golden-general;
+}
+
+@each $title, $size in (h1: 2.8, h2: 2, h3: 1.8, h4: 1.6, h5: 1.4) {
+    #{$title} {
+        @include rem2px(font-size, $size);
+    }
+}
+
+h1 {
+    font-family: $font-second;
+    font-weight: 700;
+    color: $color-white-light;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+a {
+    color: $color-golden-general;
+}
+
+a:hover {
+    color: $color-golden-general;
+    text-decoration: none;
+    outline: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+video:focus {
+    outline: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0 0 0 25px;
+}
+
+ol li {
+    margin: 0;
+    padding: 0 0 15px 0;
+    line-height: 22px;
+}
+
+input,
+textarea,
+button,
+select, {
+    &:focus {
+        outline: none;
+    }
+}
+
+.table {
+    width: 100%;
+    border: 1px solid $color-dark-medium;
+    border-collapse: collapse;
+ 
+    th {
+        background: $color-dark-medium;
+        padding: 10px 0;
+        font-weight: normal;
+        color: $color-dark-light;
+
+        @include rem2px(font-size, 1.4); //14px
+    }
+
+    td {
+        margin: 0 1px;
+        padding: 10px 5px;
+        text-align: center;
+        border: 1px solid $color-dark-medium;
+
+        @include rem2px(font-size, 1.2); //12px
+    }
+}
+/*********************************************/
+/*********************************************/

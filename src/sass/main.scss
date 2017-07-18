@@ -1,0 +1,47 @@
+/**
+ *	General collector file.
+ * 
+ *	Collects: 	utilits,
+ * 				compass library elements,
+ *				base,
+ * 				components,
+ * 				layouts etc.
+ */
+
+/* COMPASS UTILS */
+@import 			"compass";
+@import 			"compass/utilities/sprites";            // Include compass sprite helpers
+//@import 			"compass/css3";							//Compass default mixins
+//@import 			"compass/utilities/general/hacks";
+//@import 			"compass/utilities/sprites/base";		// These mixins are useful for working with sprites. This file is imported by magic sprite imports.
+
+
+/* VENDORS */
+@import 			"vendors/normalize";					// Normalize library
+
+
+/* UTILS */
+@import 			"utils/mixins";							// Mixins
+@import 			"utils/sprites";						// Sprites
+@import 			"utils/variables";						// Variables
+@import 			"utils/silent-variables";				// Silent variables (don't compilings)
+@import 			"utils/keyframes";						// Variables
+
+
+/* BASE */
+@import 			"base/typography";						// Typography
+@import 			"base/general";							// Default global styles
+
+
+/* COMPONENTS */
+@import 			"components/buttons";					// All buttons
+
+
+/* LAYOUT */
+@import 			"layout/header";						// Header
+@import 			"layout/content";						// Content
+@import 			"layout/grid";							// Layout grid
+@import 			"layout/forms";							// Form
+@import 			"layout/nav-general";					// General Top navigation
+@import 			"layout/footer";						// Footer 
+@import 			"layout/media-queries";					// Responsive styles

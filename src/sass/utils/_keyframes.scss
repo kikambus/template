@@ -1,0 +1,139 @@
+/**********************************************
+                - PULS EFFECT -
+**********************************************/
+@keyframes zommy {
+    0% { transform: scale(1); }
+    17% { transform: scale(1.2); }
+    34% { transform: scale(0.8); }
+    51% { transform: scale(1.1); }
+    68% { transform: scale(0.9); }
+    85% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@-webkit-keyframes zommy {
+    0% { transform: scale(1); }
+    17% { transform: scale(1.2); }
+    34% { transform: scale(0.8); }
+    51% { transform: scale(1.1); }
+    68% { transform: scale(0.9); }
+    85% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@-moz-keyframes zommy {
+    0% { transform: scale(1); }
+    17% { transform: scale(1.2); }
+    34% { transform: scale(0.8); }
+    51% { transform: scale(1.1); }
+    68% { transform: scale(0.9); }
+    85% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+/*********************************************/
+/*********************************************/
+
+
+/**********************************************
+                - RUBBER BAND -
+**********************************************/
+@-webkit-keyframes rubberBand {
+    from {
+        opacity: 0.5;
+        -webkit-transform: scale3d(1.03, 1.02, 1);
+        transform: scale3d(1.03, 0.8, 1);
+    }
+    
+    30% {
+        -webkit-transform: scale3d(0.99, 0.99, 1);
+        transform: scale3d(0.99, 0.8, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.02, 1.02, 1);
+        transform: scale3d(1.02, 0.96, 1);
+    }
+
+    65% {
+        -webkit-transform: scale3d(0.99, 0.99, 1);
+        transform: scale3d(0.99, 1.05, 1);
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.01, 1.01, 1);
+        transform: scale3d(1.01, 1.01, 1);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        opacity: 0.5;
+        -webkit-transform: scale3d(1.03, 1.02, 1);
+        transform: scale3d(1.03, 0.8, 1);
+    }
+    
+    30% {
+        -webkit-transform: scale3d(0.99, 0.99, 1);
+        transform: scale3d(0.99, 0.8, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.02, 1.02, 1);
+        transform: scale3d(1.02, 0.96, 1);
+    }
+
+    65% {
+        -webkit-transform: scale3d(0.99, 0.99, 1);
+        transform: scale3d(0.99, 1.05, 1);
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.01, 1.01, 1);
+        transform: scale3d(1.01, 1.01, 1);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+/*********************************************/
+/*********************************************/
+
+
+/**********************************************
+                - FADE OUT BLOW -
+**********************************************/
+@-webkit-keyframes circleOut {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes circleOut {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/*********************************************/
+/*********************************************/
