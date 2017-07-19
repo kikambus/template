@@ -23,12 +23,15 @@ var gulp 			= require('gulp'),
                		- JS -
 **********************************************/
 gulp.task('js', function() {
-		gulp.src(['src/js/cash/jquery-2.2.3.min.js', 'src/js/cash/*.*'])
-			.pipe(concat('cash.js'))
-			.pipe(uglify())
+		gulp.src('src/js/*.*'])
+			.pipe(babel({
+	        	presets: ['es2015']
+	    	}))
+			.pipe(concat('main.js'))
+			//.pipe(uglify())
 			.pipe(gulp.dest('dist/js'));
 
-		var withOutBabel = gulp.src([
+		/*var withOutBabel = gulp.src([
 			'path'
 		])
 		.pipe(concat('main.js'));
@@ -43,7 +46,7 @@ gulp.task('js', function() {
 
     	merge(withOutBabel, withBabel)
     		.pipe(concat('main.js'))
-    		.pipe(gulp.dest('dist/js'));
+    		.pipe(gulp.dest('dist/js'));*/
 });
 /*********************************************/
 /*********************************************/
