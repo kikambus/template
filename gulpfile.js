@@ -114,7 +114,6 @@ gulp.task('watch', function() {
 /*********************************************/
 /*********************************************/
 
-
 gulp.task('default', ['js'/*, 'css'*/, 'sass', 'html', 'images', 'templates', 'connect', 'watch']);
 
 
