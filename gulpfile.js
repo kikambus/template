@@ -1,4 +1,5 @@
 var gulp 			= require('gulp'),
+	connect 		= require('gulp-connect'),
 	imagemin 		= require('gulp-imagemin'),
 	concat 			= require('gulp-concat'),
 	rigger 			= require('gulp-rigger'),
@@ -6,40 +7,41 @@ var gulp 			= require('gulp'),
 	babel 			= require('gulp-babel'),
 	merge 			= require('merge-stream'),
 
-	// minifyCss		= require('gulp-minify-css'),
+	browserify 		= require('browserify'),
+	source 			= require('vinyl-source-stream'),
+	babelify 		=  require('babelify'),
+
+	//merge 			= require('merge-stream'),
+
 	autoprefixer 	= require('gulp-autoprefixer'),
 	compass         = require('gulp-compass'),
 	cleanCSS 		= require('gulp-clean-css');
+
+/**********************************************
+ 					- SERVER -
+ **********************************************/
+gulp.task('connect', function () {
+	connect.server({
+		base: 'http://localhost',
+		root: './dist',
+		port: 9000,
+		livereload: true
+	});
+});
+/*********************************************/
+/*********************************************/
 
 
 /**********************************************
                		- JS -
 **********************************************/
 gulp.task('js', function() {
-		gulp.src('src/js/*.*'])
-			.pipe(babel({
-	        	presets: ['es2015']
-	    	}))
-			.pipe(concat('main.js'))
-			//.pipe(uglify())
-			.pipe(gulp.dest('dist/js'));
-
-		/*var withOutBabel = gulp.src([
-			'path'
-		])
-		.pipe(concat('main.js'));
-		
-		var withBabel = gulp.src([
-			'path'
-		])
-		.pipe(babel({
-        	presets: ['es2015']
-    	}))
-    	.pipe(concat('main.js'));
-
-    	merge(withOutBabel, withBabel)
-    		.pipe(concat('main.js'))
-    		.pipe(gulp.dest('dist/js'));*/
+	browserify('./src/js/main.js')
+		.transform(babelify, {presets:['es2015']})
+		.bundle()
+		.pipe(source('main.js'))
+		.pipe(gulp.dest("./dist/js"))
+		.pipe(connect.reload());
 });
 /*********************************************/
 /*********************************************/
@@ -113,4 +115,28 @@ gulp.task('watch', function() {
 /*********************************************/
 
 
-gulp.task('default', ['js'/*, 'css'*/, 'sass', 'html', 'images', 'templates', 'watch']);
+gulp.task('default', ['js'/*, 'css'*/, 'sass', 'html', 'images', 'templates', 'connect', 'watch']);
+
+
+// gulp.src(['src/js/jquery.min.js', 'src/js/*.*'])
+// 	.pipe(concat('test.js'))
+// 	.pipe(uglify())
+// 	.pipe(gulp.dest('dist/js'));
+
+// 	var withOutBabel = gulp.src([
+// 		'src/js/vendors/jquery-2.2.3.min.js',
+// 	])
+// 	.pipe(concat('main.js'));
+
+// 	var withBabel = gulp.src([
+// 		'src/js/utils/*.*',
+// 		'src/js/components/**/*.*',
+// 	])
+// 	.pipe(babel({
+// 		presets: ['es2015']
+// 	}))
+// 	.pipe(concat('main.js'));
+
+// 	merge(withOutBabel, withBabel)
+// 		.pipe(concat('main.js'))
+// 		.pipe(gulp.dest('dist/js'));
