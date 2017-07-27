@@ -1,1 +1,6 @@
-#Default template for project
+# Default template for project
+
+* Gulp
+* Server
+* Sass/Scss
+* ES6
