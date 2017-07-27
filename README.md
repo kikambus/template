@@ -1,1 +1,1 @@
-default template for project
+Default template for project
